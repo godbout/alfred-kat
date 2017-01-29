@@ -16,3 +16,7 @@ The workflow is currently slow as it's using preg functions heavily. I can't get
 
 * Faster parsing of results
 * Filter (types, etc...)
+
+# Download
+
+[Release page](https://github.com/godbout/alfred-kat/releases/latest)
