@@ -10,7 +10,7 @@ If the other one on packal works it might be better to use it, it might have mor
 
 # Issues
 
-The workflow is currently slow as it's using preg functions heavily. I can't get a html parser to handle the KAT html. Planning to investigate more later.
+The workflow is currently slow as it's using preg functions. Using the html5 parser for deeper nodes is even slower. Investigating.
 
 # Todo
 
