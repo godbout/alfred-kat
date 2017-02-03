@@ -34,7 +34,9 @@ foreach ($rows as $row) {
     $workflow->result()
         ->title($title[1][0])
         ->arg($magnet[1][0])
-        ->subtitle($subtitle);
+        ->subtitle($subtitle)
+        ->icon('icons/magnet.png');
+
 }
 
 echo $workflow->output();
