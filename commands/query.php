@@ -19,6 +19,7 @@ $workflow = new Workflow;
 $dom = new IvoPetkov\HTML5DOMDocument();
 $dom->loadHTML($response);
 $rows = $dom->querySelector('table.data')->querySelectorAll('tr.odd');
+date_default_timezone_set('America/Los_Angeles');
 foreach ($rows as $row) {
     $html = $row->innerHTML;
 
@@ -29,7 +30,14 @@ foreach ($rows as $row) {
     preg_match_all('/class="red lasttd center">(.*)<\/td>/s', $html, $leechers);
     preg_match_all('/<a data-nop title="Torrent magnet link" href="(.*?)"/s', $html, $magnet);
 
-    $subtitle = trim(html_entity_decode($date[1][0])) . ', ' . trim(html_entity_decode($size[1][0])) . ', seeders: ' . trim($seeders[1][0]) . ', leechers: ' . trim($leechers[1][0]);
+    /**
+     * For a strange reason, html_entity_decode decodes correctly
+     * but the string is not usable in createFormFormat which
+     * returns FALSE, so have to use str_replace
+     */
+    $readableDate = DateTime::createFromFormat('m-d Y', trim(str_replace('&nbsp;', ' ', $date[1][0])));
+
+    $subtitle = $readableDate->format('M d, Y') . ', ' . trim(html_entity_decode($size[1][0])) . ', seeders: ' . trim($seeders[1][0]) . ', leechers: ' . trim($leechers[1][0]);
 
     $workflow->result()
         ->title($title[1][0])
