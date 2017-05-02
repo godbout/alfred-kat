@@ -39,7 +39,7 @@ if ($response === false) {
         /**
          * For a strange reason, html_entity_decode decodes correctly
          * but the string is not usable in createFormFormat which
-         * returns FALSE, so have to use str_replace
+         * returns FALSE, so have to use str_replace.
          */
         $readableDate = DateTime::createFromFormat('m-d Y', trim(str_replace('&nbsp;', ' ', $date[1][0])));
 
