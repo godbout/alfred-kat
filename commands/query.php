@@ -6,7 +6,7 @@ use Alfred\Workflows\Workflow;
 
 $baseUrl = getenv('baseUrl');
 $query = trim($argv[1]);
-$fullUrl = $baseUrl . $query;
+$fullUrl = $baseUrl . rawurlencode($query);
 
 $workflow = new Workflow();
 
