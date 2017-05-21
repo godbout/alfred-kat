@@ -46,7 +46,7 @@ if ($response === false) {
          * Try to get a readable date format
          * but the format keeps changing.
          * So if we can't get a correct one, just show
-         * the one we receive from the html
+         * the one we receive from the html.
          */
         $date = trim(str_replace('&nbsp;', ' ', $date[1][0]));
         $readableDate = DateTime::createFromFormat('m-d Y', $date);
