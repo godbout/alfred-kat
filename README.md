@@ -1,3 +1,6 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/067fb5df6d2046e8a751d057cd6631ec)](https://www.codacy.com/app/godbout/alfred-kat?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=godbout/alfred-kat&amp;utm_campaign=Badge_Grade)
+[![StyleCI](https://styleci.io/repos/80347956/shield?branch=master)](https://styleci.io/repos/80347956)
+
 # The workflow
 
 Currently very basic. Type "kat" followed by what you're looking for. Not filter available yet.
