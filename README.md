@@ -1,5 +1,7 @@
 # The workflow
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/067fb5df6d2046e8a751d057cd6631ec)](https://www.codacy.com/app/godbout/alfred-kat?utm_source=github.com&utm_medium=referral&utm_content=godbout/alfred-kat&utm_campaign=badger)
+
 Currently very basic. Type "kat" followed by what you're looking for. Not filter available yet.
 The KAT URL is an Alfred workflow variable, so you can replace it with a mirror in case the main site is down.
 
