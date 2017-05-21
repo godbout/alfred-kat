@@ -8,7 +8,7 @@ $baseUrl = getenv('baseUrl');
 $query = trim($argv[1]);
 $fullUrl = $baseUrl . $query;
 
-$workflow = new Workflow();
+$workflow = new Workflow;
 
 $ch = curl_init($fullUrl);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
@@ -26,7 +26,6 @@ if ($response === false) {
     $dom->loadHTML($response);
     $rows = $dom->querySelector('table.data')->querySelectorAll('tr.odd');
     date_default_timezone_set('America/Los_Angeles');
-
     foreach ($rows as $row) {
         $html = $row->innerHTML;
 
@@ -42,6 +41,7 @@ if ($response === false) {
          * but the string is not usable in createFormFormat which
          * returns FALSE, so have to use str_replace.
          */
+        
         /**
          * Try to get a readable date format
          * but the format keeps changing.
@@ -49,33 +49,34 @@ if ($response === false) {
          * the one we receive from the html
          */
         $date = trim(str_replace('&nbsp;', ' ', $date[1][0]));
+
         $readableDate = DateTime::createFromFormat('m-d Y', $date);
 
-        if ($readableDate !== false) {
-            $readableDate = $readableDate->format('M d, Y');
-        } else {
-            $readableDate = DateTime::createFromFormat('m-d H:i', $date);
-
-            if ($readableDate !== false) {
-                $readableDate = $readableDate->format('M d, Y');
-            } else {
-                $readableDate = $date;
-            }
+        if ($readableDate === true) {
+            $date = $readableDate->createFromFormat
         }
 
-        $subtitle = $readableDate . ', ' . trim(html_entity_decode($size[1][0])) . ', seeders: ' . trim($seeders[1][0]) . ', leechers: ' . trim($leechers[1][0]);
+        $readableDate = DateTime::createFromFormat('m-d Y', trim(str_replace('&nbsp;', ' ', $date[1][0])));
+        if ($readableDate === false) {
+            $readableDate = DateTime::createFromFormat('m-d H:i', trim(str_replace('&nbsp;', ' ', $date[1][0])));
+            if ($readableDate === false) {
+                $readableDate = str_replace('&nbsp;', ' ', $date[1][0]);
+            } else {
+                $readableDate = $readableDate->format('M d, Y');
+            }
+
+
+        $readableDate = $readableDate->format('M d, Y');
+
+        $subtitle = $date . ', ' . trim(html_entity_decode($size[1][0])) . ', seeders: ' . trim($seeders[1][0]) . ', leechers: ' . trim($leechers[1][0]);
 
         $workflow->result()
             ->title($title[1][0])
             ->arg($magnet[1][0])
             ->subtitle($subtitle)
             ->icon('icons/magnet.png');
-    }
 
-    if (count($rows) === 0) {
-        $workflow->result()
-            ->title('No items found')
-            ->subtitle('Search for another term maybe?');
+            $readableDate->format('M d, Y')
     }
 }
 
