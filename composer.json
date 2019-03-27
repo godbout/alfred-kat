@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Godbout\\Alfred\\KAT\\": "src"
+            "Godbout\\Alfred\\Kat\\": "src"
         }
     },
     "autoload-dev": {
