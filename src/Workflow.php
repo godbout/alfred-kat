@@ -4,8 +4,8 @@ namespace Godbout\Alfred\Kat;
 
 class Workflow
 {
-    public static function menuFor($term = '')
+    public static function resultsFor($term = '')
     {
-        return '';
+        return 'Fight Club (1999)';
     }
 }

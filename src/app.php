@@ -8,5 +8,5 @@ if (getenv('action') === 'do') {
     $result = Workflow::do();
     print Workflow::notify($result);
 } else {
-    print Workflow::menuFor(getenv('search'));
+    print Workflow::resultsFor(getenv('search'));
 }

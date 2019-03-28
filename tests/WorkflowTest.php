@@ -12,7 +12,7 @@ class WorkflowTest extends TestCase
     {
         $this->assertStringContainsString(
             'Fight Club (1999)',
-            Workflow::menuFor('fight club')
+            Workflow::resultsFor('fight club')
         );
     }
 }
