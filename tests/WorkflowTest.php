@@ -17,4 +17,15 @@ class WorkflowTest extends TestCase
             Workflow::resultsFor('fight club')
         );
     }
+
+    /** @test */
+    public function it_tells_the_user_that_there_is_no_item_found_if_well_there_is_no_item_found()
+    {
+        putenv('url=https://kickass.sx/torrent/usearch/');
+
+        $this->assertStringContainsString(
+            'not found',
+            Workflow::resultsFor('kjeriuhsdvfiuqherfiushvsliudfhgsidlugf')
+        );
+    }
 }

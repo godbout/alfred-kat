@@ -15,14 +15,23 @@ class Workflow
 
         $crawler = $client->request('GET', getenv('url') . urlencode($term));
 
-        $crawler->filter('.firstr')->nextAll()->each(function ($row) {
+        $torrentsRows = $crawler->filter('.frontPageWidget tr');
+
+        if ($torrentsRows->count()) {
+            $torrentsRows->nextAll()->each(function ($row) {
+                ScriptFilter::add(
+                    Item::create()
+                        ->title(trim(self::itemTitle($row)))
+                        ->subtitle(trim($row->text()))
+                        ->icon(Icon::create("resources/icons/magnet.png"))
+                );
+            });
+        } else {
             ScriptFilter::add(
                 Item::create()
-                    ->title(trim(self::itemTitle($row)))
-                    ->subtitle(trim($row->text()))
-                    ->icon(Icon::create("resources/icons/magnet.png"))
+                    ->title('not found')
             );
-        });
+        }
 
         return ScriptFilter::output();
     }
