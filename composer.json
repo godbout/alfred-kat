@@ -23,7 +23,8 @@
         "godbout/alfred-workflow-scriptfilter": "^1.5",
         "fabpot/goutte": "^3.2",
         "symfony/dom-crawler": "^4.2",
-        "symfony/css-selector": "^4.2"
+        "symfony/css-selector": "^4.2",
+        "guzzlehttp/guzzle": "^6.1"
 
     },
     "require-dev": {
