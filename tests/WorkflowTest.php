@@ -2,18 +2,10 @@
 
 namespace Tests;
 
-use PHPUnit\Framework\TestCase;
 use Godbout\Alfred\Kat\Workflow;
 
 class WorkflowTest extends TestCase
 {
-    public function setUp()
-    {
-        parent::setUp();
-
-        putenv('url=https://kickasstorrents.to');
-    }
-
     /** @test */
     public function it_can_search_for_torrents_on_the_kat_site()
     {
@@ -38,6 +30,23 @@ class WorkflowTest extends TestCase
         $this->assertStringContainsString(
             '/fight-club-1999-1080p-brrip-x264-yify-t446902.html',
             Workflow::resultsFor('fight club')
+        );
+    }
+
+    /** @test */
+    public function it_can_download_a_chosen_torrent()
+    {
+        $this->assertEmpty(
+            Workflow::download('/fight-club-1999-1080p-brrip-x264-yify-t446902.html')
+        );
+    }
+
+    /** @test */
+    public function it_can_notify_the_user()
+    {
+        $this->assertStringContainsString(
+            'Fight Club (1999) 1080p BrRip x264 - YIFY',
+            Workflow::notify('Fight Club (1999) 1080p BrRip x264 - YIFY')
         );
     }
 }

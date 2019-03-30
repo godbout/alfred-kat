@@ -29,18 +29,18 @@ class Workflow
         return self::menuFor($torrents);
     }
 
-    public static function download()
+    public static function download($magnetLink = '')
     {
-        $crawler = (new Client())->request('GET', getenv('url') . getenv('torrent_page_link'));
+        $crawler = (new Client())->request('GET', getenv('url') . $magnetLink);
 
         $magnetLink = $crawler->filter('a[title="Magnet link"]')->attr('href');
 
-        return shell_exec("open $magnetLink");
+        return exec("open $magnetLink 2>&1", $result);
     }
 
-    public static function notify()
+    public static function notify($torrentName = '')
     {
-        return '"' . getenv('torrent_name') . '" will soon be at home!';
+        return '"' . $torrentName . '" will soon be at home!';
     }
 
     protected static function searchOnlineFor($term)
