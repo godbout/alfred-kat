@@ -21,9 +21,11 @@ class Workflow
             $torrentsRows->nextAll()->each(function ($row) {
                 ScriptFilter::add(
                     Item::create()
-                        ->title(trim(self::itemTitle($row)))
-                        ->subtitle(trim($row->text()))
+                        ->title(self::itemTitle($row))
+                        ->subtitle(self::itemSubtitle($row))
                         ->icon(Icon::create("resources/icons/magnet.png"))
+                        ->arg('download')
+                        ->variable('torrent_page_link', self::itemPageLink($row))
                 );
             });
         } else {
@@ -36,7 +38,7 @@ class Workflow
         return ScriptFilter::output();
     }
 
-    public static function itemTitle($row)
+    protected static function itemTitle($row)
     {
         $itemMetada = [];
 
@@ -44,23 +46,33 @@ class Workflow
             $itemMetada[] = trim($column->text());
         });
 
-        return self::buildItemTitle($itemMetada);
+        return trim(self::buildItemTitle($itemMetada));
     }
 
-    public static function buildItemTitle($metadata)
+    protected static function itemSubtitle($row)
+    {
+        return trim(strstr(trim($row->text()), PHP_EOL, true));
+    }
+
+    protected static function buildItemTitle($metadata)
     {
         [$timeagoNumericPart, $timeagoAlphaPart] = self::buildTimeagoValue($metadata[2]);
 
         return "$timeagoNumericPart $timeagoAlphaPart ago by $metadata[1], $metadata[0], $metadata[3] seeders ($metadata[4] l)";
     }
 
-    public static function buildTimeagoValue($timeago)
+    protected static function buildTimeagoValue($timeago)
     {
         $numbericPart = intval($timeago);
 
         $alphaPart = str_replace($numbericPart, '', $timeago);
 
         return [$numbericPart, $alphaPart];
+    }
+
+    protected static function itemPageLink($row)
+    {
+        return $row->children('td a.cellMainLink')->eq(0)->attr('href');
     }
 
     public static function userInput()
