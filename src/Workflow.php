@@ -2,77 +2,51 @@
 
 namespace Godbout\Alfred\Kat;
 
-use Goutte\Client;
+use Godbout\Alfred\Kat\Menu;
 use Godbout\Alfred\Workflow\Icon;
 use Godbout\Alfred\Workflow\Item;
 use Godbout\Alfred\Workflow\ScriptFilter;
+use Goutte\Client;
 
 class Workflow
 {
     public static function resultsFor($term = '')
     {
-        $client = new Client();
+        $torrents = self::searchOnlineFor($term);
 
-        $crawler = $client->request('GET', getenv('url') . urlencode($term));
+        self::buildMenuFor($torrents);
 
-        $torrentsRows = $crawler->filter('.frontPageWidget tr');
+        return ScriptFilter::output();
+    }
 
-        if ($torrentsRows->count()) {
-            $torrentsRows->nextAll()->each(function ($row) {
+    protected static function buildMenuFor($torrents)
+    {
+        if ($torrents->count()) {
+            $torrents->nextAll()->each(function ($row) {
                 ScriptFilter::add(
                     Item::create()
-                        ->title(self::itemTitle($row))
-                        ->subtitle(self::itemSubtitle($row))
+                        ->title(Menu::itemTitle($row))
+                        ->subtitle(Menu::itemSubtitle($row))
                         ->icon(Icon::create("resources/icons/magnet.png"))
                         ->arg('download')
-                        ->variable('torrent_page_link', self::itemPageLink($row))
+                        ->variable('torrent_page_link', Menu::itemPageLink($row))
+                        ->variable('torrent_name', Menu::itemSubtitle($row))
                 );
             });
         } else {
             ScriptFilter::add(
                 Item::create()
-                    ->title('not found')
+                    ->title('404 for ' . self::userInput() . ' ☹️')
+                    ->subtitle('Try some other terms maybe?')
             );
         }
-
-        return ScriptFilter::output();
     }
 
-    protected static function itemTitle($row)
+    protected static function searchOnlineFor($term)
     {
-        $itemMetada = [];
+        $crawler = (new Client())->request('GET', getenv('url') . '/usearch/' . urlencode($term));
 
-        $row->children('td')->nextAll()->each(function ($column) use (&$itemMetada) {
-            $itemMetada[] = trim($column->text());
-        });
-
-        return trim(self::buildItemTitle($itemMetada));
-    }
-
-    protected static function itemSubtitle($row)
-    {
-        return trim(strstr(trim($row->text()), PHP_EOL, true));
-    }
-
-    protected static function buildItemTitle($metadata)
-    {
-        [$timeagoNumericPart, $timeagoAlphaPart] = self::buildTimeagoValue($metadata[2]);
-
-        return "$timeagoNumericPart $timeagoAlphaPart ago by $metadata[1], $metadata[0], $metadata[3] seeders ($metadata[4] l)";
-    }
-
-    protected static function buildTimeagoValue($timeago)
-    {
-        $numbericPart = intval($timeago);
-
-        $alphaPart = str_replace($numbericPart, '', $timeago);
-
-        return [$numbericPart, $alphaPart];
-    }
-
-    protected static function itemPageLink($row)
-    {
-        return $row->children('td a.cellMainLink')->eq(0)->attr('href');
+        return $crawler->filter('.frontPageWidget tr');
     }
 
     public static function userInput()
@@ -80,5 +54,21 @@ class Workflow
         global $argv;
 
         return trim($argv[1] ?? '');
+    }
+
+    public static function download()
+    {
+        $client = new Client();
+
+        $crawler = $client->request('GET', getenv('url') . getenv('torrent_page_link'));
+
+        $magnetLink = $crawler->filter('a[title="Magnet link"]')->attr('href');
+
+        return shell_exec("open $magnetLink");
+    }
+
+    public static function notify()
+    {
+        return '"' . getenv('torrent_name') .'" will soon be at home!';
     }
 }

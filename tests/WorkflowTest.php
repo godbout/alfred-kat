@@ -11,7 +11,7 @@ class WorkflowTest extends TestCase
     {
         parent::setUp();
 
-        putenv('url=https://kickasstorrents.to/usearch/');
+        putenv('url=https://kickasstorrents.to');
     }
 
     /** @test */
@@ -27,7 +27,7 @@ class WorkflowTest extends TestCase
     public function it_tells_the_user_that_there_is_no_item_found_if_well_there_is_no_item_found()
     {
         $this->assertStringContainsString(
-            'not found',
+            '404',
             Workflow::resultsFor('kjeriuhsdvfiuqherfiushvsliudfhgsidlugf')
         );
     }
