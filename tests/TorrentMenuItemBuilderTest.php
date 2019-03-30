@@ -2,9 +2,8 @@
 
 namespace Tests;
 
-use Godbout\Alfred\Kat\TorrentMenuItemBuilder;
 use Goutte\Client;
-use Tests\TestCase;
+use Godbout\Alfred\Kat\TorrentMenuItemBuilder;
 
 class TorrentMenuItemBuilderTest extends TestCase
 {

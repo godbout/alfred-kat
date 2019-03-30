@@ -2,10 +2,10 @@
 
 namespace Godbout\Alfred\Kat;
 
+use Goutte\Client;
 use Godbout\Alfred\Workflow\Icon;
 use Godbout\Alfred\Workflow\Item;
 use Godbout\Alfred\Workflow\ScriptFilter;
-use Goutte\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
 class Workflow

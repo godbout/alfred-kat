@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use Godbout\Alfred\Kat\Workflow;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
