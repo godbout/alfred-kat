@@ -2,9 +2,11 @@
 
 namespace Godbout\Alfred\Kat;
 
-class Menu
+use Symfony\Component\DomCrawler\Crawler;
+
+class TorrentMenuItemBuilder
 {
-    public static function itemTitle($row)
+    public static function title(Crawler $row)
     {
         $itemMetada = [];
 
@@ -12,15 +14,20 @@ class Menu
             $itemMetada[] = trim($column->text());
         });
 
-        return trim(self::buildItemTitle($itemMetada));
+        return trim(self::buildTitle($itemMetada));
     }
 
-    public static function itemSubtitle($row)
+    public static function subtitle(Crawler $row)
     {
         return trim(strstr(trim($row->text()), PHP_EOL, true));
     }
 
-    protected static function buildItemTitle($metadata)
+    public static function pageLink(Crawler $row)
+    {
+        return $row->children('td a.cellMainLink')->eq(0)->attr('href');
+    }
+
+    protected static function buildTitle($metadata)
     {
         [$timeagoNumericPart, $timeagoAlphaPart] = self::buildTimeagoValue($metadata[2]);
 
@@ -34,10 +41,5 @@ class Menu
         $alphaPart = str_replace($numbericPart, '', $timeago);
 
         return [$numbericPart, $alphaPart];
-    }
-
-    public static function itemPageLink($row)
-    {
-        return $row->children('td a.cellMainLink')->eq(0)->attr('href');
     }
 }

@@ -4,9 +4,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Godbout\Alfred\Kat\Workflow;
 
-if (getenv('action') !== 'download') {
-    exit(Workflow::resultsFor(Workflow::userInput()));
+if (Workflow::action() === 'download') {
+    Workflow::download();
+    exit(Workflow::notify());
 }
 
-Workflow::download();
-print Workflow::notify();
+print Workflow::resultsFor(Workflow::userInput());
