@@ -13,7 +13,7 @@ Get your KAT torrents without all the advertising crap. Type "kat" followed by w
 
 # MANDATORY SCREENSHOT
 
-![Beautiful Screenshot](https://github.com/godbout/alfred-airplay/blob/master/resources/screenshots/usage.gif "Beautiful Screenshot")
+![Beautiful Screenshot](https://github.com/godbout/alfred-kat/blob/master/resources/screenshots/usage.gif "Beautiful Screenshot")
 
 # WHY IS THAT
 
