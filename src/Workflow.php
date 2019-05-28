@@ -33,7 +33,7 @@ class Workflow
     {
         $crawler = (new Client())->request('GET', getenv('url') . $magnetLink);
 
-        $magnetLink = $crawler->filter('a[title="Magnet link"]')->attr('href');
+        $magnetLink = $crawler->filter('#tab-technical a.siteButton.giantButton')->attr('href');
 
         return exec("open $magnetLink 2>&1", $result);
     }
