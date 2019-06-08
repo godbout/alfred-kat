@@ -55,7 +55,6 @@ class Workflow
 
     public static function notifyCopy($torrentName = '')
     {
-
         return 'Magnet link for "' . substr($torrentName, 0, 30) . '..." has been copied to clipboard!';
     }
 
