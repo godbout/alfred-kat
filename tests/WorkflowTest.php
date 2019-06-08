@@ -42,14 +42,6 @@ class WorkflowTest extends TestCase
     }
 
     /** @test */
-    public function it_can_copy_the_magnet_link_of_a_chosen_torrent()
-    {
-        $this->assertTrue(
-            Workflow::copy('/fight-club-1999-1080p-brrip-x264-yify-t446902.html')
-        );
-    }
-
-    /** @test */
     public function it_can_notify_the_user()
     {
         $this->assertStringContainsString(
