@@ -41,7 +41,7 @@ class WorkflowTest extends TestCase
         );
     }
 
-     /** @test */
+    /** @test */
     public function it_can_copy_the_magnet_link_of_a_chosen_torrent()
     {
         $this->markTestSkipped('This test needs to run under an osx environment');

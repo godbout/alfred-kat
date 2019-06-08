@@ -43,7 +43,7 @@ class Workflow
     {
         $magnetLink = self::findMagnetLinkOn($torrentPageLink);
 
-        system("echo '$magnetLink' | pbcopy", $result);
+        system("echo '$magnetLink' | pbcopy 2>&1", $result);
 
         return $result === 0;
     }
