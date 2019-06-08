@@ -5,6 +5,7 @@ namespace Godbout\Alfred\Kat;
 use Goutte\Client;
 use Godbout\Alfred\Workflow\Icon;
 use Godbout\Alfred\Workflow\Item;
+use Godbout\Alfred\Workflow\Mods\Cmd;
 use Godbout\Alfred\Workflow\ScriptFilter;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -38,9 +39,24 @@ class Workflow
         return exec("open $magnetLink 2>&1", $result);
     }
 
-    public static function notify($torrentName = '')
+    public static function copy($magnetLink = '')
+    {
+        $crawler = (new Client())->request('GET', getenv('url') . $magnetLink);
+
+        $magnetLink = $crawler->filter('#tab-technical a.siteButton.giantButton')->attr('href');
+
+        return exec("echo '$magnetLink' | pbcopy", $result);
+    }
+
+    public static function notifyDownload($torrentName = '')
     {
         return '"' . $torrentName . '" will soon be at home!';
+    }
+
+    public static function notifyCopy($torrentName = '')
+    {
+
+        return 'Magnet link for "' . substr($torrentName, 0, 30) . '..." has been copied to clipboard!';
     }
 
     protected static function searchOnlineFor($term)
@@ -62,6 +78,13 @@ class Workflow
                         ->arg('download')
                         ->variable('torrent_page_link', TorrentMenuItemBuilder::pageLink($row))
                         ->variable('torrent_name', TorrentMenuItemBuilder::subtitle($row))
+                        ->mod(
+                            Cmd::create()
+                                ->arg('copy')
+                                ->subtitle('Copy magnet link')
+                                ->variable('torrent_page_link', TorrentMenuItemBuilder::pageLink($row))
+                                ->variable('torrent_name', TorrentMenuItemBuilder::subtitle($row))
+                        )
                 );
             });
         } else {
