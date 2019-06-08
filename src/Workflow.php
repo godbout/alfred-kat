@@ -30,22 +30,29 @@ class Workflow
         return self::menuFor($torrents);
     }
 
-    public static function download($magnetLink = '')
+    public static function download($torrentPageLink = '')
     {
-        $crawler = (new Client())->request('GET', getenv('url') . $magnetLink);
+        $magnetLink = self::findMagnetLinkOn($torrentPageLink);
 
-        $magnetLink = $crawler->filter('#tab-technical a.siteButton.giantButton')->attr('href');
+        system("open $magnetLink 2>&1", $result);
 
-        return exec("open $magnetLink 2>&1", $result);
+        return $result === 0;
     }
 
-    public static function copy($magnetLink = '')
+    public static function copy($torrentPageLink = '')
     {
-        $crawler = (new Client())->request('GET', getenv('url') . $magnetLink);
+        $magnetLink = self::findMagnetLinkOn($torrentPageLink);
 
-        $magnetLink = $crawler->filter('#tab-technical a.siteButton.giantButton')->attr('href');
+        system("echo '$magnetLink' | pbcopy", $result);
 
-        return exec("echo '$magnetLink' | pbcopy", $result);
+        return $result === 0;
+    }
+
+    protected static function findMagnetLinkOn($torrentPageLink = '')
+    {
+        $crawler = (new Client())->request('GET', getenv('url') . $torrentPageLink);
+
+        return $crawler->filter('#tab-technical a.siteButton.giantButton')->attr('href');
     }
 
     public static function notifyDownload($torrentName = '')
