@@ -26,6 +26,12 @@ There's a [KAT workflow](http://www.packal.org/workflow/kat-search) already on [
 
 NO SETUP! But the KAT URL is an Alfred workflow variable so you can replace it with a mirror in case the main site is down.
 
+# PRO USERS
+
+The workflow opens the magnet with the magnet default application of your Mac. If you prefer using a command-line client, you can add a `cli` variable in the [Workflow Environment Variables](https://www.alfredapp.com/help/workflows/advanced/variables/#environment). The value should be the full path to your torrent client with a `{magnet}` variable that will be replaced by the selected magnet (e.g. `/usr/local/bin/transmission-remote -a {magnet}`).
+
+You can also copy the magnet to the clipboard rather than opening it (and starting the download) by using the ⌘ modifier.
+
 # DOWNLOAD
 
 [Release page](https://github.com/godbout/alfred-kat/releases/latest)
