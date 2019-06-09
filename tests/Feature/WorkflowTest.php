@@ -1,7 +1,8 @@
 <?php
 
-namespace Tests;
+namespace Tests\Feature;
 
+use Tests\TestCase;
 use Godbout\Alfred\Kat\Workflow;
 
 class WorkflowTest extends TestCase
@@ -34,12 +35,24 @@ class WorkflowTest extends TestCase
     }
 
     /** @test */
-    public function it_can_download_a_chosen_torrent()
+    public function it_can_download_a_chosen_torrent_through_the_default_application()
     {
         $this->assertTrue(
             Workflow::download('/fight-club-1999-1080p-brrip-x264-yify-t446902.html')
         );
     }
+
+    /** @test */
+    public function it_can_download_a_chosen_torrent_through_a_cli_command()
+    {
+        putenv('cli=: {magnet}');
+
+        $this->assertTrue(
+            Workflow::download('/fight-club-1999-1080p-brrip-x264-yify-t446902.html')
+        );
+    }
+
+
 
     /** @test */
     public function it_can_copy_the_magnet_link_of_a_chosen_torrent()

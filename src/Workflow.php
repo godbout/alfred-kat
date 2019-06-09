@@ -34,6 +34,22 @@ class Workflow
     {
         $magnetLink = self::findMagnetLinkOn($torrentPageLink);
 
+        if (getenv('cli') !== false) {
+            return self::downloadThroughCliCommand($magnetLink);
+        }
+
+        return self::downloadThroughDefaultApplication($magnetLink);
+    }
+
+    protected static function downloadThroughCliCommand($magnetLink = '')
+    {
+        system(str_replace('{magnet}', $magnetLink, getenv('cli')), $result);
+
+        return $result === 0;
+    }
+
+    protected static function downloadThroughDefaultApplication($magnetLink = '')
+    {
         system("open $magnetLink 2>&1", $result);
 
         return $result === 0;
