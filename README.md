@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://github.com/godbout/alfred-kat/releases/tag/2.0.0"><img src="https://img.shields.io/github/release/godbout/alfred-kat.svg" alt="GitHub Release"></a>
-    <a href="https://travis-ci.org/godbout/alfred-kat"><img src="https://img.shields.io/travis/godbout/alfred-kat/master.svg" alt="Build Status"></a>
+    <a href="https://travis-ci.com/godbout/alfred-kat"><img src="https://img.shields.io/travis/com/godbout/alfred-kat/master.svg" alt="Build Status"></a>
     <a href="https://scrutinizer-ci.com/g/godbout/alfred-kat"><img src="https://img.shields.io/scrutinizer/g/godbout/alfred-kat.svg" alt="Quality Score"></a>
     <a href="https://scrutinizer-ci.com/g/godbout/alfred-kat"><img src="https://scrutinizer-ci.com/g/godbout/alfred-kat/badges/coverage.png?b=master" alt="Code Coverage"></a>
     <a href="https://github.com/godbout/alfred-kat/releases"><img src="https://img.shields.io/github/downloads/godbout/alfred-kat/total.svg" alt="GitHub Downloads"></a>
