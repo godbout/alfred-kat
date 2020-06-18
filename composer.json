@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "godbout/alfred-workflow-scriptfilter": "^2.0",
+        "godbout/alfred-workflow-workflow": "^1.0",
         "fabpot/goutte": "^3.2",
         "symfony/dom-crawler": "^4.2",
         "symfony/css-selector": "^4.2",

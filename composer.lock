@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b17e5190d3e4496aaccb50c70b13252a",
+    "content-hash": "d023c77706f3a01da1d8220ddba0cccb",
     "packages": [
         {
             "name": "fabpot/goutte",
@@ -115,6 +115,60 @@
                 "source": "https://github.com/godbout/alfred-workflow-scriptfilter/tree/master"
             },
             "time": "2020-06-14T15:10:05+00:00"
+        },
+        {
+            "name": "godbout/alfred-workflow-workflow",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/godbout/alfred-workflow-workflow.git",
+                "reference": "0eebdf14c0493a32661e00a3416d665ec2373ea5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/godbout/alfred-workflow-workflow/zipball/0eebdf14c0493a32661e00a3416d665ec2373ea5",
+                "reference": "0eebdf14c0493a32661e00a3416d665ec2373ea5",
+                "shasum": ""
+            },
+            "require": {
+                "godbout/alfred-workflow-scriptfilter": "^2.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "^0.27.0",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Godbout\\Alfred\\Workflow\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guillaume Leclerc",
+                    "email": "guill@sleeplessmind.com.mo",
+                    "role": "main craftsman"
+                }
+            ],
+            "description": "Takes care of all the Alfred glue for you so that you need to code only what is specific to your Workflow.",
+            "homepage": "https://github.com/godbout/alfred-workflow-workflow",
+            "keywords": [
+                "alfred",
+                "alfred-workflow",
+                "php",
+                "template",
+                "workflow"
+            ],
+            "support": {
+                "issues": "https://github.com/godbout/alfred-workflow-workflow/issues",
+                "source": "https://github.com/godbout/alfred-workflow-workflow/tree/master"
+            },
+            "time": "2020-06-17T15:11:39+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

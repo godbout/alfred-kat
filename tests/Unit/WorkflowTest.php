@@ -8,13 +8,21 @@ use Godbout\Alfred\Kat\Workflow;
 class WorkflowTest extends TestCase
 {
     /** @test */
-    public function it_can_get_the_action_env_variable()
+    public function calling_a_workflow_action_that_does_not_exists_returns_false()
     {
-        putenv('action=copy');
+        putenv('workflow_action=LOOOLLLOLL');
 
-        $this->assertSame(
-            'copy',
-            Workflow::action()
+        $this->assertFalse(Workflow::do());
+    }
+
+    /** @test */
+    public function calling_a_workflow_action_that_does_not_exists_sends_a_notification_that_huh_you_wrong()
+    {
+        putenv('workflow_action=LOOOLLLOLL');
+
+        $this->assertStringContainsString(
+            'huh.',
+            Workflow::notify()
         );
     }
 }

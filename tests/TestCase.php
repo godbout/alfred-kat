@@ -13,8 +13,15 @@ class TestCase extends BaseTestCase
         $this->setUpAlfredEnvVariables();
     }
 
-    private function setUpAlfredEnvVariables()
+    protected function setUpAlfredEnvVariables()
     {
         putenv('url=https://kickasstorrents.to');
+    }
+
+    protected function spoofUserInputInAlfredWith($userInput = 'bullshit')
+    {
+        global $argv;
+
+        $argv[1] = $userInput;
     }
 }
