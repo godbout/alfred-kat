@@ -7,7 +7,7 @@ use Godbout\Alfred\Kat\TorrentMenuItemBuilder;
 
 class TorrentMenuItemBuilderTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -21,7 +21,7 @@ class TorrentMenuItemBuilderTest extends TestCase
     /** @test */
     public function it_can_build_the_item_title()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'ago by YTSAGx, 1.7 GB',
             TorrentMenuItemBuilder::title($this->row)
         );
