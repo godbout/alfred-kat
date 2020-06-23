@@ -69,6 +69,8 @@ class WorkflowTest extends TestCase
     /** @test */
     public function it_can_copy_the_magnet_link_of_a_chosen_torrent()
     {
+        $this->markTestSkipped('This test needs to run under an osx environment');
+
         putenv('workflow_action=copy');
         putenv('torrent_page_link=/fight-club-1999-1080p-brrip-x264-yify-t446902.html');
 
