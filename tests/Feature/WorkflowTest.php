@@ -43,7 +43,7 @@ class WorkflowTest extends TestCase
     /** @test */
     public function it_can_download_a_chosen_torrent_through_the_default_application()
     {
-        putenv('workflow_action=download');
+        putenv('action=download');
         putenv('torrent_page_link=/fight-club-1999-1080p-brrip-x264-yify-t446902.html');
 
         $this->assertTrue(
@@ -54,7 +54,7 @@ class WorkflowTest extends TestCase
     /** @test */
     public function it_can_download_a_chosen_torrent_through_a_cli_command()
     {
-        putenv('workflow_action=download');
+        putenv('action=download');
         putenv('torrent_page_link=/fight-club-1999-1080p-brrip-x264-yify-t446902.html');
 
         putenv('cli=: {magnet}');
@@ -71,7 +71,7 @@ class WorkflowTest extends TestCase
     {
         $this->markTestSkipped('This test needs to run under an osx environment');
 
-        putenv('workflow_action=copy');
+        putenv('action=copy');
         putenv('torrent_page_link=/fight-club-1999-1080p-brrip-x264-yify-t446902.html');
 
         $this->assertTrue(
@@ -82,7 +82,7 @@ class WorkflowTest extends TestCase
     /** @test */
     public function it_can_notify_the_user_when_download()
     {
-        putenv('workflow_action=download');
+        putenv('action=download');
         putenv('torrent_name=Fight Club (1999) 1080p BrRip x264 - YIFY');
 
         $this->assertStringContainsString(
@@ -96,13 +96,13 @@ class WorkflowTest extends TestCase
     {
         putenv('torrent_name=Fight Club (1999) 1080p BrRip x264 - YIFY');
 
-        putenv('workflow_action=download');
+        putenv('action=download');
         $this->assertStringContainsString(
             'will soon be at home',
             Workflow::notify()
         );
 
-        putenv('workflow_action=copy');
+        putenv('action=copy');
         $this->assertStringContainsString(
             'has been copied to clipboard',
             Workflow::notify()
@@ -112,7 +112,7 @@ class WorkflowTest extends TestCase
     /** @test */
     public function it_can_notify_the_user_when_copy()
     {
-        putenv('workflow_action=copy');
+        putenv('action=copy');
         putenv('torrent_name=Fight Club (1999) 1080p BrRip x264 - YIFY');
 
         $this->assertStringContainsString(

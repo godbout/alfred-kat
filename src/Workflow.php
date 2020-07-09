@@ -9,7 +9,7 @@ class Workflow extends BaseWorkflow
 {
     public static function do()
     {
-        $action = getenv('workflow_action');
+        $action = getenv('action');
 
         if (method_exists(static::class, $action)) {
             return static::$action(getenv('torrent_page_link'));
@@ -20,7 +20,7 @@ class Workflow extends BaseWorkflow
 
     public static function notify($result = false)
     {
-        $action = getenv('workflow_action');
+        $action = getenv('action');
         $torrentName = getenv('torrent_name');
 
         if ($action === 'download') {

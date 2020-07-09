@@ -10,7 +10,7 @@ class WorkflowTest extends TestCase
     /** @test */
     public function calling_a_workflow_action_that_does_not_exists_returns_false()
     {
-        putenv('workflow_action=LOOOLLLOLL');
+        putenv('action=LOOOLLLOLL');
 
         $this->assertFalse(Workflow::do());
     }
@@ -18,7 +18,7 @@ class WorkflowTest extends TestCase
     /** @test */
     public function calling_a_workflow_action_that_does_not_exists_sends_a_notification_that_huh_you_wrong()
     {
-        putenv('workflow_action=LOOOLLLOLL');
+        putenv('action=LOOOLLLOLL');
 
         $this->assertStringContainsString(
             'huh.',
