@@ -21,12 +21,12 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "godbout/alfred-workflow-workflow": "^1.1",
         "fabpot/goutte": "^4",
-        "symfony/dom-crawler": "^5.2",
+        "godbout/alfred-workflow-workflow": "^1.1",
+        "guzzlehttp/guzzle": "^7.2",
         "symfony/css-selector": "^5.0",
-        "guzzlehttp/guzzle": "^7.2"
-
+        "symfony/dom-crawler": "^5.2",
+        "symfony/http-client": "^5.2"
     },
     "require-dev": {
         "codedungeon/phpunit-result-printer": "^0.30.1",
