@@ -23,14 +23,14 @@
         "php": "^7.4 || ^8.0",
         "godbout/alfred-workflow-workflow": "^1.1",
         "fabpot/goutte": "^4",
-        "symfony/dom-crawler": "^5",
-        "symfony/css-selector": "^5",
+        "symfony/dom-crawler": "^5.0",
+        "symfony/css-selector": "^5.0",
         "guzzlehttp/guzzle": "^7.2"
 
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
-        "codedungeon/phpunit-result-printer": "^0.30",
+        "codedungeon/phpunit-result-printer": "^0.30.1",
         "scrutinizer/ocular": "^1.8"
     },
     "autoload": {
