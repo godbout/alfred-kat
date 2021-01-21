@@ -22,10 +22,10 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "godbout/alfred-workflow-workflow": "^1.1",
-        "fabpot/goutte": "^3.2",
-        "symfony/dom-crawler": "^4.2",
-        "symfony/css-selector": "^4.2",
-        "guzzlehttp/guzzle": "^6.3"
+        "fabpot/goutte": "^4",
+        "symfony/dom-crawler": "^5",
+        "symfony/css-selector": "^5",
+        "guzzlehttp/guzzle": "^7.2"
 
     },
     "require-dev": {
