@@ -19,7 +19,7 @@ class TorrentMenuItemBuilder
 
     public static function subtitle(Crawler $row)
     {
-        return trim(strstr(trim($row->text()), PHP_EOL, true));
+        return trim(strstr(trim($row->text('', false)), PHP_EOL, true));
     }
 
     public static function pageLink(Crawler $row)
