@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^7.3 || ^8.0",
         "fabpot/goutte": "^4",
         "godbout/alfred-workflow-workflow": "^1.1",
         "guzzlehttp/guzzle": "^7.2",
