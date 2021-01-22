@@ -20,18 +20,29 @@ class Entrance extends BaseMenu
         );
     }
 
-    protected static function resultsFor($term = '')
+    protected static function resultsFor($userInput = '')
     {
-        $torrents = self::searchOnlineFor($term);
+        $torrents = self::searchOnlineFor($userInput);
 
         return self::menuFor($torrents);
     }
 
-    protected static function searchOnlineFor($term)
+    protected static function searchOnlineFor($userInput)
     {
-        $crawler = (new Client())->request('GET', getenv('url') . '/usearch/' . urlencode($term));
+        $crawler = (new Client())->request('GET', self::buildURLFrom($userInput));
 
         return $crawler->filter('.frontPageWidget tr');
+    }
+
+    protected static function buildURLFrom($userInput)
+    {
+        if (($tag = strstr($userInput, '#')) !== false) {
+            $term = strstr($userInput, '#', true);
+
+            return getenv('url') . '/search/' . urlencode($term) . '/category/' . ltrim($tag, '#') . '/';
+        }
+
+        return getenv('url') . '/usearch/' . urlencode($userInput);
     }
 
     protected static function menuFor(Crawler $torrents)
