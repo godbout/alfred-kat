@@ -64,8 +64,6 @@ class WorkflowTest extends TestCase
         );
     }
 
-
-
     /** @test */
     public function it_can_copy_the_magnet_link_of_a_chosen_torrent()
     {
