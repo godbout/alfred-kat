@@ -14,9 +14,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        os: macos-latest
         php: [8.0, 7.4, 7.3]
-        dependency-version: [prefer-lowest, prefer-stable]
 
     steps:
       - name: checkout code
@@ -42,7 +41,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: install dependencies
-        run: composer install --ignore-platform-req=php --${{ matrix.dependency-version }}
+        run: composer install --ignore-platform-req=php
 
       - name: run tests
         run: composer test -- --coverage-clover=coverage.clover
