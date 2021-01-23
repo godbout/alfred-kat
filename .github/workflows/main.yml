@@ -42,7 +42,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: install dependencies
-        run: composer update --${{ matrix.dependency-version }}
+        run: composer install --ignore-platform-req=php --${{ matrix.dependency-version }}
 
       - name: run tests
         run: composer test -- --coverage-clover=coverage.clover
