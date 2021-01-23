@@ -10,7 +10,7 @@ on:
 
 jobs:
   php:
-    name: PHP on macOS
+    name: on macOS, PHP
 
     runs-on: macos-latest
 
