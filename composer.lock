@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "371606911c9448fff071952fed56b156",
+    "content-hash": "43c21baf4dad0e0dbf1e9a603547cdf8",
     "packages": [
         {
             "name": "fabpot/goutte",
@@ -63,20 +63,20 @@
         },
         {
             "name": "godbout/alfred-workflow-scriptfilter",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/godbout/alfred-workflow-scriptfilter.git",
-                "reference": "5b2d8529ff4ce93a7e84e62d7dcdc8e0ec2e7db8"
+                "reference": "5d8b41d8f1f73188865f09dfe8403b83d0796155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/godbout/alfred-workflow-scriptfilter/zipball/5b2d8529ff4ce93a7e84e62d7dcdc8e0ec2e7db8",
-                "reference": "5b2d8529ff4ce93a7e84e62d7dcdc8e0ec2e7db8",
+                "url": "https://api.github.com/repos/godbout/alfred-workflow-scriptfilter/zipball/5d8b41d8f1f73188865f09dfe8403b83d0796155",
+                "reference": "5d8b41d8f1f73188865f09dfe8403b83d0796155",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4 || ^8.0"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
                 "codedungeon/phpunit-result-printer": "^0.30",
@@ -113,22 +113,22 @@
             ],
             "support": {
                 "issues": "https://github.com/godbout/alfred-workflow-scriptfilter/issues",
-                "source": "https://github.com/godbout/alfred-workflow-scriptfilter/tree/2.2.0"
+                "source": "https://github.com/godbout/alfred-workflow-scriptfilter/tree/2.3.0"
             },
-            "time": "2021-01-02T17:32:18+00:00"
+            "time": "2021-01-23T16:58:38+00:00"
         },
         {
             "name": "godbout/alfred-workflow-workflow",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/godbout/alfred-workflow-workflow.git",
-                "reference": "d462fa5e900408a6dbc377531cd8fa85479b25c4"
+                "reference": "17d54798ac430398781a1195427e6a9b6d489f58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/godbout/alfred-workflow-workflow/zipball/d462fa5e900408a6dbc377531cd8fa85479b25c4",
-                "reference": "d462fa5e900408a6dbc377531cd8fa85479b25c4",
+                "url": "https://api.github.com/repos/godbout/alfred-workflow-workflow/zipball/17d54798ac430398781a1195427e6a9b6d489f58",
+                "reference": "17d54798ac430398781a1195427e6a9b6d489f58",
                 "shasum": ""
             },
             "require": {
@@ -169,9 +169,9 @@
             ],
             "support": {
                 "issues": "https://github.com/godbout/alfred-workflow-workflow/issues",
-                "source": "https://github.com/godbout/alfred-workflow-workflow/tree/1.1.0"
+                "source": "https://github.com/godbout/alfred-workflow-workflow/tree/1.2.0"
             },
-            "time": "2021-01-03T07:05:34+00:00"
+            "time": "2021-01-03T13:37:21+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

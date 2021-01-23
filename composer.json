@@ -22,7 +22,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "fabpot/goutte": "^4",
-        "godbout/alfred-workflow-workflow": "^1.1",
+        "godbout/alfred-workflow-workflow": "^1.2",
         "guzzlehttp/guzzle": "^7.2",
         "symfony/css-selector": "^5.0",
         "symfony/dom-crawler": "^5.2",
