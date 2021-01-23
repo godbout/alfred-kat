@@ -10,6 +10,8 @@ on:
 
 jobs:
   php:
+    name: PHP on macOS
+
     runs-on: macos-latest
 
     strategy:
