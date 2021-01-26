@@ -14,9 +14,11 @@ ___
 
 Get your KAT torrents without all the advertising crap. Type "kat" followed by what you're looking for, wait a bit (it's quick), choose your torrent and make some space on your HD.
 
+Now you can also use #tags.
+
 # MANDATORY SCREENSHOT
 
-![Beautiful Screenshot](https://github.com/godbout/alfred-kat/blob/master/resources/screenshots/usage.gif "Beautiful Screenshot")
+![Beautiful Video](https://github.com/godbout/alfred-kat/blob/media/alfred-kat.mp4 "Beautiful Video")
 
 # WHY IS THAT
 
