@@ -18,7 +18,7 @@ Now you can also use #tags.
 
 # MANDATORY SCREENSHOT
 
-![Beautiful Video](https://github.com/godbout/alfred-kat/blob/media/alfred-kat.mp4 "Beautiful Video")
+![Beautiful Video](https://github.com/godbout/alfred-kat/blob/media/alfred-kat.mp4?raw=true "Beautiful Video")
 
 # WHY IS THAT
 
