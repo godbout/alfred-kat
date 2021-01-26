@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43c21baf4dad0e0dbf1e9a603547cdf8",
+    "content-hash": "3897f143ae1d21f9cae36a4bb7afc54f",
     "packages": [
         {
             "name": "fabpot/goutte",
@@ -123,17 +123,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/godbout/alfred-workflow-workflow.git",
-                "reference": "17d54798ac430398781a1195427e6a9b6d489f58"
+                "reference": "830ec1bd2280cf668642064406d3b7d91276bf95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/godbout/alfred-workflow-workflow/zipball/17d54798ac430398781a1195427e6a9b6d489f58",
-                "reference": "17d54798ac430398781a1195427e6a9b6d489f58",
+                "url": "https://api.github.com/repos/godbout/alfred-workflow-workflow/zipball/830ec1bd2280cf668642064406d3b7d91276bf95",
+                "reference": "830ec1bd2280cf668642064406d3b7d91276bf95",
                 "shasum": ""
             },
             "require": {
                 "godbout/alfred-workflow-scriptfilter": "^2.0",
-                "php": "^7.4 || ^8.0"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
                 "codedungeon/phpunit-result-printer": "^0.30",
@@ -171,7 +171,7 @@
                 "issues": "https://github.com/godbout/alfred-workflow-workflow/issues",
                 "source": "https://github.com/godbout/alfred-workflow-workflow/tree/1.2.0"
             },
-            "time": "2021-01-03T13:37:21+00:00"
+            "time": "2021-01-23T17:01:01+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -4962,7 +4962,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4 || ^8.0"
+        "php": "^7.3 || ^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
