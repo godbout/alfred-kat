@@ -10,9 +10,9 @@
 
 ___
 
-# UPDATE: Alfred KAT IS NOT WRITTEN IN SWIFT
+# UPDATE: Alfred KAT IS NOW WRITTEN IN SWIFT AND HAS A NEW HOME
 
-And has moved here: https://github.com/godbout/AlfredKat
+There: https://github.com/godbout/AlfredKat
 
 # WHAT IS THAT
 
