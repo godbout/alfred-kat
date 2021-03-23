@@ -10,6 +10,10 @@
 
 ___
 
+# UPDATE: Alfred KAT IS NOT WRITTEN IN SWIFT
+
+And has moved here: https://github.com/godbout/AlfredKat
+
 # WHAT IS THAT
 
 Get your KAT torrents without all the advertising crap. Type "kat" followed by what you're looking for, wait a bit (it's quick), choose your torrent and make some space on your HD.
